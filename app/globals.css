@@ -1,8 +1,25 @@
 @import "tailwindcss";
+@import "./scroll-to-decrypt/scroll-to-decrypt.css";
+@import "./scroll-animation-page/scroll-animation-page.css";
+@import "./file-upload/file-upload.css";
+@import "./scroll-to-unblur/scroll-to-unblur.css";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --email: #ff0000;
+  --linkedin: #0077b5;
+  --facebook: #1877f2;
+  --x: #000000;
+  --white: #ffffff;
+  scroll-behavior: smooth;
+  --split-width: 30px;
+  --slidey-height: 800px;
+  --text-slide-distance: 30px;
+  --primary-input: #ffffff;
+  --secondary-input: rgb(255, 255, 255);
+  --background-input: #b1afaf;
+  --box-background-input: #1E1E1E;
 }
 
 @theme inline {
@@ -22,5 +39,50 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'AOS Icons', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif, system-ui;
+}
+
+.font-mono {
+  font-family: 'Departure Mono', monospace;
+}
+
+/* ANGLED-MEDIA-SLIDER */
+
+ul.slidey {
+  height: var(--slidey-height);
+}
+
+ul.slidey>li {
+  grid-area: 1 / 1;
+  transition: clip-path 0.5s ease;
+  will-change: clip-path;
+}
+
+/* TEXT OVERLAY */
+ul.slidey .foreground {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  background-color: var(--background);
+  mix-blend-mode: multiply;
+}
+
+ul.slidey>li:hover .foreground,
+ul.slidey>li:focus-within .foreground {
+  opacity: 0.75;
+  transition: opacity 0.5s 0.3s ease-in-out;
+}
+
+ul.slidey .fg_content h1 {
+  transform: translateX(-50%);
+  line-height: var(--slidey-height);
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 800;
+  font-size: 8vw;
+  transition: transform 1s ease;
+}
+
+ul.slidey>li:hover .fg_content h1 {
+  transform: translateX(var(--text-slide-distance));
 }

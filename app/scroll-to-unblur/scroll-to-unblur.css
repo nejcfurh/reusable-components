@@ -1,0 +1,60 @@
+/* Scroll-to-unblur animation styles */
+.scroll-unblur-container {
+  --containerHeight: 5000px;
+  --wordCount: 150;
+  --pxPerWord: calc((var(--containerHeight) - 100vh) / var(--wordCount));
+  height: 100vh;
+  scroll-timeline-name: --section;
+  overflow-y: scroll;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a0b2e 50%, #16001e 100%);
+}
+
+.scroll-unblur-spacer {
+    height: var(--containerHeight);
+}
+
+.word {
+  opacity: 0;
+  display: inline;
+  --start: calc(var(--i) * var(--pxPerWord));
+  --end: calc((var(--i) + 1) * var(--pxPerWord));
+  animation: unblur-word;
+  animation-timeline: --section;
+  animation-fill-mode: forwards;
+  animation-range: var(--start) var(--end);
+}
+
+@keyframes unblur-word {
+    0% {
+        filter: blur(20px);
+        opacity: 0;
+    }
+
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+/* Fallback for browsers that don't support scroll-timeline */
+@supports not (animation-timeline: --section) {
+    .word {
+        opacity: 1;
+        filter: blur(0px);
+        animation: none;
+    }
+
+    .scroll-unblur-container::before {
+        content: "Your browser doesn't support scroll-driven animations. Please use Chrome 115+ or Edge 115+";
+        position: fixed;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        z-index: 1000;
+        font-size: 0.875rem;
+    }
+}
