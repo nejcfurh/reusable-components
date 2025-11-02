@@ -1,5 +1,7 @@
 import { MainPageItem } from '@/utils/types';
 import { BsInputCursor } from 'react-icons/bs';
+import { CiCreditCard2 } from 'react-icons/ci';
+import { GrShareOption } from 'react-icons/gr';
 import { IoShareSocialOutline } from 'react-icons/io5';
 import {
   MdBlurOn,
@@ -58,5 +60,17 @@ export const MAIN_PAGE_DATA: MainPageItem[] = [
     path: '/social-media-buttons',
     icon: <IoShareSocialOutline />,
     color: 'from-cyan-500 to-blue-500',
+  },
+  {
+    name: 'Multi-option menu',
+    path: '/multi-option-menu',
+    icon: <GrShareOption />,
+    color: 'from-orange-500 to-red-200',
+  },
+  {
+    name: 'Transforming Cards',
+    path: '/transforming-cards',
+    icon: <CiCreditCard2 />,
+    color: 'from-green-200 to-emerald-800',
   },
 ];

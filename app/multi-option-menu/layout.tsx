@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
-  title: 'Text Input Fields',
-  description: 'Text input fields component',
+  title: 'Multi Option Menu Button',
+  description: 'Multi option menu button component',
 };
 
 export default function Layout({

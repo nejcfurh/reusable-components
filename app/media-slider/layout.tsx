@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Media slider component',
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;

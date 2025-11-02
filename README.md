@@ -71,6 +71,37 @@ Animated social media share buttons with modern styling.
 - **Path**: `/social-media-buttons`
 - **Features**: Email, LinkedIn, Facebook, X (Twitter) buttons with hover effects
 
+### 9. Multi-Option Menu
+
+Interactive menu button that expands into multiple options with smooth animations.
+
+- **Path**: `/multi-option-menu`
+- **Features**:
+  - Two layout variants (circular and horizontal)
+  - Smooth expand/collapse animations
+  - SVG filter effects for visual enhancement
+  - Customizable menu items
+  - Click-outside-to-close functionality
+  - Modern glassmorphism design
+    **Inspired by and adapted from**: [Lukas Bebber](https://css-tricks.com/gooey-effect/?utm_source=bonobopress&utm_medium=newsletter&utm_campaign=2093)
+
+### 10. Transforming Cards
+
+Dynamic card scanner effect with particle systems and real-time transformations. Cards transition from normal to ASCII art as they pass through a particle beam scanner.
+
+- **Path**: `/transforming-cards`
+- **Features**:
+  - Real-time card clipping and transformation during drag
+  - Dual particle systems (Three.js background particles + canvas scanner beam)
+  - Dynamic particle intensity (800 → 2500 particles when scanning)
+  - Multi-layered glow effects with smooth transitions
+  - Draggable card stream with momentum physics
+  - ASCII art generation from card images
+  - Scan effects with visual feedback
+  - Adjustable velocity and direction controls
+- **Technologies**: Three.js for 3D particles, Canvas API for scanner effects, React 19 hooks
+- **Inspired by and adapted from**: [Evervault](https://evervault.com/)
+
 ## 🛠️ Getting Started
 
 ### Prerequisites
@@ -82,24 +113,57 @@ Animated social media share buttons with modern styling.
 
 ```
 reusable-components/
-├── app/
-│   ├── drap-drop/           # Drag & Drop component
-│   ├── file-upload/         # File Upload component
-│   ├── input-fields/        # Input Fields component
-│   ├── media-slider/        # Media Slider component
+├── app/                         # Next.js App Router
+│   ├── drap-drop/               # Drag & Drop component
+│   ├── file-upload/             # File Upload component
+│   ├── input-fields/            # Input Fields component
+│   ├── media-slider/            # Media Slider component
+│   ├── multi-option-menu/       # Multi-Option Menu component
 │   ├── scroll-animation-page/   # Scroll Animation component
-│   ├── scroll-to-decrypt/   # Scroll to Decrypt component
-│   ├── scroll-to-unblur/    # Scroll to Unblur component
+│   ├── scroll-to-decrypt/       # Scroll to Decrypt component
+│   ├── scroll-to-unblur/        # Scroll to Unblur component
 │   ├── social-media-buttons/    # Social Media Buttons component
-│   ├── globals.css          # Global styles
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Home page with component gallery
-├── public/
-│   └── images/              # Static images
+│   ├── transforming-cards/      # Transforming Cards component
+│   ├── globals.css              # Global styles
+│   ├── layout.tsx               # Root layout
+│   └── page.tsx                 # Home page with component gallery
+├── components/                  # Shared/reusable components
+│   ├── animation-core/          # Core animation components
+│   │   ├── AnimatedBackgroundGradient.tsx
+│   │   ├── AnimatedDiv.tsx
+│   │   ├── AnimatedText.tsx
+│   │   ├── AnimatedTitle.tsx
+│   │   ├── FloatingOrb.tsx
+│   │   └── ...
+│   ├── buttons/                 # Reusable button components
+│   │   ├── BackButton.tsx
+│   │   └── CustomLinkButton.tsx
+│   ├── Footer.tsx
+│   ├── Header.tsx
+│   └── Tooltip.tsx
+├── features/                    # Feature-specific logic
+│   ├── file-upload/             # File upload utilities & types
+│   ├── media-slider/            # Media slider constants & types
+│   ├── multi-option-button/     # Multi-option menu config
+│   ├── scroll-to-unblur/        # Scroll unblur utilities
+│   ├── social-media-buttons/    # Social buttons config
+│   └── transforming-cards/      # Card transformation logic
+├── hooks/                       # Custom React hooks
+├── constants/                   # Global constants
+│   └── constants.tsx
+├── utils/                       # Utility functions
+│   ├── types.ts
+│   └── utils.ts
+├── validation/                  # Validation schemas
+├── config/                      # Configuration files
+├── public/                      # Static assets
+│   └── images/                  # Image files
 ├── package.json
 ├── tsconfig.json
+├── next.config.ts
 ├── tailwind.config.ts
-└── next.config.ts
+├── postcss.config.mjs
+└── eslint.config.mjs
 ```
 
 ## 🎨 Technologies Used
@@ -109,6 +173,8 @@ reusable-components/
 - **TypeScript 5** - Type safety
 - **Tailwind CSS 4** - Utility-first CSS framework
 - **React Icons 5.5.0** - Icon library
+- **Three.js** - 3D graphics and particle systems
+- **Canvas API** - 2D graphics and animations
 - **CSS Scroll-Timeline API** - For scroll-driven animations
 
 ## 📄 License

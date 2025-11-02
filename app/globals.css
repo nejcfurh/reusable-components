@@ -23,6 +23,11 @@
   --secondary-input: rgb(255, 255, 255);
   --background-input: #b1afaf;
   --box-background-input: #1E1E1E;
+  --multio-option-menu-fg: #696667;
+  --multio-option-menu-bg: #8bc34a;
+  --multio-option-menu-items: 6;
+  --multio-option-menu-open-distance: 105px;
+  --multio-option-menu-pi: 3.14159265359;
 }
 
 @theme inline {
@@ -88,4 +93,181 @@ ul.slidey .fg_content h1 {
 
 ul.slidey>li:hover .fg_content h1 {
   transform: translateX(var(--text-slide-distance));
+}
+
+/* MULTI-OPTION-MENU - BASE STYLES */
+
+.menu {
+  position: absolute;
+  left: 50%;
+  padding-top: 20px;
+  box-sizing: border-box;
+  font-size: 20px;
+  text-align: left;
+}
+
+.menu-item,
+.menu-open-button {
+  background: var(--multio-option-menu-fg);
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  position: absolute;
+  top: 20px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.menu-item {
+  transition-duration: 180ms;
+}
+
+.menu-item:hover {
+  background: white;
+  color: var(--multio-option-menu-fg);
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12.5px;
+  margin-top: -1.5px;
+  transition: transform 200ms;
+}
+
+.hamburger-1 {
+  transform: translate3d(0, -8px, 0);
+}
+
+.hamburger-2 {
+  transform: translate3d(0, 0, 0);
+}
+
+.hamburger-3 {
+  transform: translate3d(0, 8px, 0);
+}
+
+.menu-open-button {
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 400ms;
+  transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+}
+
+.menu-open-button:hover {
+  transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+}
+
+.menu-open-state .menu-open-button .hamburger-1 {
+  transform: translate3d(0, 0, 0) rotate(45deg);
+}
+
+.menu-open-state .menu-open-button .hamburger-2 {
+  transform: translate3d(0, 0, 0) scale(0.1, 1);
+}
+
+.menu-open-state .menu-open-button .hamburger-3 {
+  transform: translate3d(0, 0, 0) rotate(-45deg);
+}
+
+.menu-open-state .menu-open-button {
+  transition-timing-function: linear;
+  transition-duration: 200ms;
+  transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+}
+
+/* VARIANT: CIRCULAR */
+.menu-circular {
+  filter: url('#goo');
+  margin-left: -190px;
+  padding-left: 190px;
+  width: 380px;
+  height: 250px;
+}
+
+.menu-circular .menu-item,
+.menu-circular .menu-open-button {
+  top: 70px;
+}
+
+.menu-circular.menu-open-state .menu-item {
+  transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
+}
+
+.menu-circular.menu-open-state .menu-item:nth-child(2) {
+  transition-duration: 180ms;
+  transform: translate3d(0px, 105px, 0);
+}
+
+.menu-circular.menu-open-state .menu-item:nth-child(3) {
+  transition-duration: 280ms;
+  transform: translate3d(90.93px, 52.5px, 0);
+}
+
+.menu-circular.menu-open-state .menu-item:nth-child(4) {
+  transition-duration: 380ms;
+  transform: translate3d(90.93px, -52.5px, 0);
+}
+
+.menu-circular.menu-open-state .menu-item:nth-child(5) {
+  transition-duration: 480ms;
+  transform: translate3d(0px, -105px, 0);
+}
+
+.menu-circular.menu-open-state .menu-item:nth-child(6) {
+  transition-duration: 580ms;
+  transform: translate3d(-90.93px, -52.5px, 0);
+}
+
+.menu-circular.menu-open-state .menu-item:nth-child(7) {
+  transition-duration: 680ms;
+  transform: translate3d(-90.93px, 52.5px, 0);
+}
+
+/* VARIANT: HORIZONTAL */
+.menu-horizontal {
+  filter: url('#shadowed-goo');
+  margin-left: -80px;
+  padding-left: 80px;
+  width: 650px;
+  height: 150px;
+}
+
+.menu-horizontal.menu-open-state .menu-item {
+  transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+}
+
+.menu-horizontal.menu-open-state .menu-item:nth-child(2) {
+  transition-duration: 190ms;
+  transform: translate3d(110px, 0, 0);
+}
+
+.menu-horizontal.menu-open-state .menu-item:nth-child(3) {
+  transition-duration: 290ms;
+  transform: translate3d(220px, 0, 0);
+}
+
+.menu-horizontal.menu-open-state .menu-item:nth-child(4) {
+  transition-duration: 390ms;
+  transform: translate3d(330px, 0, 0);
+}
+
+.menu-horizontal.menu-open-state .menu-item:nth-child(5) {
+  transition-duration: 490ms;
+  transform: translate3d(440px, 0, 0);
 }
