@@ -11,6 +11,9 @@
   --linkedin: #0077b5;
   --facebook: #1877f2;
   --x: #000000;
+  --github: #3c3b3b;
+  --whatsapp: #25d366;
+  --sms: #25b6d3;
   --white: #ffffff;
   scroll-behavior: smooth;
   --split-width: 30px;
@@ -50,7 +53,7 @@ body {
 /* ANGLED-MEDIA-SLIDER */
 
 ul.slidey {
-  height: var(--slidey-height);
+  height: 100vh;
 }
 
 ul.slidey>li {
@@ -59,7 +62,8 @@ ul.slidey>li {
   will-change: clip-path;
 }
 
-/* TEXT OVERLAY */
+/* ANGLED-MEDIA-SLIDER - TEXT OVERLAY */
+
 ul.slidey .foreground {
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
@@ -74,13 +78,12 @@ ul.slidey>li:focus-within .foreground {
 }
 
 ul.slidey .fg_content h1 {
-  transform: translateX(-50%);
-  line-height: var(--slidey-height);
   text-transform: uppercase;
   text-align: center;
   font-weight: 800;
-  font-size: 8vw;
+  font-size: 6vw;
   transition: transform 1s ease;
+  transform: translateX(0);
 }
 
 ul.slidey>li:hover .fg_content h1 {

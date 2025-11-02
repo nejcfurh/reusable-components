@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
-  title: 'Angled Media Slider',
-  description: 'Angled media slider',
+  title: 'Media Slider',
+  description: 'Media slider component',
 };
 
 export default function RootLayout({

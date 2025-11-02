@@ -2,6 +2,7 @@
 
 import React, { Suspense, useEffect, useRef } from 'react';
 import ScrollToDecryptSkeleton from './ScrollToDecryptSkeleton';
+import ScrollMarginComponent from './ScrollMarginComponent';
 
 export interface ScrollToDecryptProps {
   title?: string;
@@ -88,32 +89,30 @@ const ScrollToDecrypt: React.FC<ScrollToDecryptProps> = ({
       }
 
       return (
-        <Suspense fallback={<div>Loading...</div>} key={`word-${wordIndex}`}>
-          <span className="word whitespace-nowrap">
-            {word.chars.map(char => {
-              const currentCharIndex = charIndex++;
-              return (
+        <span key={`word-${wordIndex}`} className="word whitespace-nowrap">
+          {word.chars.map(char => {
+            const currentCharIndex = charIndex++;
+            return (
+              <span
+                key={currentCharIndex}
+                data-char={char}
+                className="char relative inline-block w-[1ch] h-lh overflow-hidden"
+                style={
+                  {
+                    '--char-index': currentCharIndex,
+                  } as React.CSSProperties
+                }
+              >
                 <span
-                  key={currentCharIndex}
-                  data-char={char}
-                  className="char relative inline-block w-[1ch] h-lh overflow-hidden"
-                  style={
-                    {
-                      '--char-index': currentCharIndex,
-                    } as React.CSSProperties
-                  }
-                >
-                  <span
-                    className="absolute w-[1ch] left-1/2 bottom-0 -translate-x-1/2 wrap-break-word whitespace-break-spaces"
-                    dangerouslySetInnerHTML={{
-                      __html: char + escapeHTML(randomString(trackLength)),
-                    }}
-                  />
-                </span>
-              );
-            })}
-          </span>
-        </Suspense>
+                  className="absolute w-[1ch] left-1/2 bottom-0 -translate-x-1/2 wrap-break-word whitespace-break-spaces"
+                  dangerouslySetInnerHTML={{
+                    __html: char + escapeHTML(randomString(trackLength)),
+                  }}
+                />
+              </span>
+            );
+          })}
+        </span>
       );
     });
   };
@@ -129,13 +128,7 @@ const ScrollToDecrypt: React.FC<ScrollToDecryptProps> = ({
   return (
     <div className={`w-full ${containerClassName}`}>
       {enableScrollContent && (
-        <main className="min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 font-mono uppercase">
-          <div className="w-full max-w-7xl mx-auto text-center">
-            <div className="text-xl sm:text-2xl md:text-3xl opacity-60">
-              Scroll down to decrypt the text ...
-            </div>
-          </div>
-        </main>
+        <ScrollMarginComponent text="Scroll down to decrypt the text..." />
       )}
       <header className="min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
@@ -175,13 +168,7 @@ const ScrollToDecrypt: React.FC<ScrollToDecryptProps> = ({
         </div>
       </header>
       {enableScrollContent && (
-        <main className="min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 font-mono uppercase">
-          <div className="w-full max-w-7xl mx-auto text-center">
-            <div className="text-xl sm:text-2xl md:text-3xl opacity-60">
-              Scroll up to scramble the text ...
-            </div>
-          </div>
-        </main>
+        <ScrollMarginComponent text="Scroll up to scramble the text..." />
       )}
     </div>
   );

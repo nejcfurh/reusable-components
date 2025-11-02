@@ -1,37 +1,74 @@
-"use client";
+'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../scroll-to-unblur.css';
+import { SCROLL_TO_UNBLUR_TEXT } from '@/features/scroll-to-unblur/contants';
+import { textIntoWords } from '@/features/scroll-to-unblur/utils';
 
-export default function ScrollToUnblur() {
-  // Extended Lorem Ipsum text split into words
-  const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempus eros sit amet erat rutrum
-    elementum. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
-    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-    quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-    ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
-    Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
-    condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis.
-    Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
-    Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices
-    nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam,
-    gravida non, commodo a, sodales sit amet, nisi. Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor,
-    ultrices ut, elementum vulputate, nunc. Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel,
-    euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna. Ut aliquam sollicitudin leo.
-    Cras iaculis ultricies nulla. Donec quis dui at dolor tempor interdum.`;
+interface ScrollToUnblurProps {
+  containerHeight?: number;
+  text?: string;
+  pxPerWordMultiplier?: number;
+}
 
-  // Split text into words and filter out empty strings
-  const words = text.split(/\s+/).filter(word => word.length > 0);
+export default function ScrollToUnblur({
+  containerHeight,
+  text = SCROLL_TO_UNBLUR_TEXT,
+  pxPerWordMultiplier = 40,
+}: ScrollToUnblurProps) {
+  const words: string[] = textIntoWords(text);
+  const wordCount = words.length;
+
+  const [dimensions, setDimensions] = useState<{
+    viewportHeight: number;
+    calculatedHeight: number;
+  }>(() => {
+    if (typeof window === 'undefined') {
+      return { viewportHeight: 0, calculatedHeight: 0 };
+    }
+    const vh = window.innerHeight;
+    const height = containerHeight ?? wordCount * pxPerWordMultiplier;
+    return { viewportHeight: vh, calculatedHeight: height };
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const vh = window.innerHeight;
+      const height = containerHeight ?? wordCount * pxPerWordMultiplier;
+      setDimensions({ viewportHeight: vh, calculatedHeight: height });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [containerHeight, wordCount, pxPerWordMultiplier]);
+
+  if (dimensions.calculatedHeight === 0) {
+    return null;
+  }
+
+  const { viewportHeight, calculatedHeight } = dimensions;
+  const totalScrollHeight = calculatedHeight + viewportHeight;
+  const pxPerWord = calculatedHeight / wordCount;
 
   return (
-    <main className="scroll-unblur-container">
-      <div className="scroll-unblur-spacer">
-        <p className="sticky top-20 px-8 md:px-20 text-3xl md:text-5xl lg:text-6xl leading-relaxed text-white">
+    <main
+      className="h-screen pt-10 overflow-y-scroll bg-linear-to-br from-[#0f0f23] via-[#1a0b2e] to-[#16001e]"
+      style={
+        {
+          scrollTimelineName: '--section',
+          '--containerHeight': `${totalScrollHeight}px`,
+          '--wordCount': wordCount,
+          '--pxPerWord': `${pxPerWord}px`,
+        } as React.CSSProperties
+      }
+    >
+      <div className="relative" style={{ height: `${totalScrollHeight}px` }}>
+        <p className="sticky top-20 px-8 md:px-20 text-xl md:text-4xl leading-relaxed text-white">
           {words.map((word, index) => (
-            <span 
-              key={index} 
+            <span
+              key={index}
               className="word"
-              style={{ '--i': index + 1 } as React.CSSProperties}
+              style={{ '--i': index } as React.CSSProperties}
             >
               {word}{' '}
             </span>
@@ -41,4 +78,3 @@ export default function ScrollToUnblur() {
     </main>
   );
 }
-

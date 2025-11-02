@@ -5,6 +5,7 @@ import { CiImageOn, CiTextAlignCenter } from 'react-icons/ci';
 import { FaVideo } from 'react-icons/fa';
 import { IoClose, IoRadioButtonOn } from 'react-icons/io5';
 import { RxDividerHorizontal } from 'react-icons/rx';
+import ClearAllButton from './ClearAllButton';
 
 interface Widget {
   id: string;
@@ -91,7 +92,7 @@ export default function DropArea() {
   }
 
   return (
-    <div className="flex-1">
+    <div className="z-50 flex-1">
       <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-gray-800">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -103,12 +104,7 @@ export default function DropArea() {
             </div>
           )}
           {widgets.length > 0 && (
-            <button
-              onClick={handleClearAll}
-              className="rounded-lg bg-red-500 px-3 py-1 text-sm font-medium text-white transition-colors hover:bg-red-600"
-            >
-              Clear All
-            </button>
+            <ClearAllButton handleClearAll={handleClearAll} />
           )}
         </div>
 

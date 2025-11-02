@@ -1,18 +1,25 @@
-import Link from 'next/link';
-import AngledMediaSlider from './components/AngledMediaSlider';
-import { IoArrowBack } from 'react-icons/io5';
+'use client';
 
+import AngledMediaSlider from './components/AngledMediaSlider';
+import BackButton from '@/components/buttons/BackButton';
+import { useState } from 'react';
+import OverlayTextButton from './components/OverlayTextButton';
 export default function Home() {
+  const [displayTextOverlay, setDisplayTextOverlay] = useState(false);
+
+  const handleDisplayTextOverlay = () => {
+    setDisplayTextOverlay(prev => !prev);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-screen">
-      <Link
-        href="/"
-        className="absolute top-10 left-5 bg-white opacity-20 z-10 p-4 rounded-full backdrop-blur-3xl hover:opacity-50 hover:scale-[1.10] transition-all duration-300"
-      >
-        <IoArrowBack className="text-2xl text-black" />
-      </Link>
+    <div className="flex flex-col items-center justify-center h-screen w-screen p-0 m-0">
+      <BackButton className="top-5 left-5" />
+      <OverlayTextButton
+        handleDisplayTextOverlay={handleDisplayTextOverlay}
+        displayTextOverlay={displayTextOverlay}
+      />
       {/* ENABLE TEXT TRUE WILL ENABLE OPAQUE OVERLAY WITH THE VIDEO TITLE */}
-      <AngledMediaSlider />
+      <AngledMediaSlider enableText={displayTextOverlay} />
     </div>
   );
 }

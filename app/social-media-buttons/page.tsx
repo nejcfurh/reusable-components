@@ -1,16 +1,16 @@
-import { IoArrowBack } from 'react-icons/io5';
+import { Metadata } from 'next';
 import SocialMediaButtons from './components/SocialMediaButtons';
-import Link from 'next/link';
+import BackButton from '@/components/buttons/BackButton';
+
+export const metadata: Metadata = {
+  title: 'Social Media Buttons Component',
+  description: 'Social media buttons component',
+};
 
 export default function Home() {
   return (
     <div className="h-screen w-full flex items-center justify-center relative">
-      <Link
-        href="/"
-        className="absolute top-5 left-5 bg-white opacity-20 z-10 p-4 rounded-full backdrop-blur-3xl hover:opacity-50 hover:scale-[1.10] transition-all duration-300"
-      >
-        <IoArrowBack className="text-2xl text-black" />
-      </Link>
+      <BackButton className="top-5 left-5" />
       <SocialMediaButtons />
     </div>
   );

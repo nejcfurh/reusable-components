@@ -1,17 +1,18 @@
-import Link from 'next/link';
+import Tooltip from '@/components/Tooltip';
 import ScrollToUnblur from './components/ScrollToUnblur';
-import { IoArrowBack } from 'react-icons/io5';
+import BackButton from '@/components/buttons/BackButton';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center relative">
+    <div className="min-h-screen flex items-center flex-col justify-center relative">
+      <BackButton className="top-5 left-5" />
       <ScrollToUnblur />
-      <Link
-        href="/"
-        className="absolute top-5 left-5 bg-white opacity-20 z-10 p-4 rounded-full backdrop-blur-3xl hover:opacity-50 hover:scale-[1.10] transition-all duration-300"
-      >
-        <IoArrowBack className="text-2xl text-black" />
-      </Link>
+      <Tooltip
+        text="Scroll down to unblur"
+        bgColor="bg-amber-50"
+        textColor="text-black"
+        className="bottom-5 left-1/2 -translate-x-1/2"
+      />
     </div>
   );
 }

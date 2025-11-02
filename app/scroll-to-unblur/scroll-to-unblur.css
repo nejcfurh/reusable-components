@@ -1,42 +1,41 @@
-/* Scroll-to-unblur animation styles */
-.scroll-unblur-container {
-  --containerHeight: 5000px;
-  --wordCount: 150;
-  --pxPerWord: calc((var(--containerHeight) - 100vh) / var(--wordCount));
-  height: 100vh;
-  scroll-timeline-name: --section;
-  overflow-y: scroll;
-  background: linear-gradient(135deg, #0f0f23 0%, #1a0b2e 50%, #16001e 100%);
-}
-
-.scroll-unblur-spacer {
-    height: var(--containerHeight);
-}
-
 .word {
-  opacity: 0;
-  display: inline;
-  --start: calc(var(--i) * var(--pxPerWord));
-  --end: calc((var(--i) + 1) * var(--pxPerWord));
-  animation: unblur-word;
-  animation-timeline: --section;
-  animation-fill-mode: forwards;
-  animation-range: var(--start) var(--end);
+    opacity: 0;
+    display: inline;
+    --start: calc(var(--i) * var(--pxPerWord));
+    --end: calc((var(--i) + 1) * var(--pxPerWord));
+    animation: unblur-word;
+    animation-timeline: --section;
+    animation-fill-mode: forwards;
+    animation-range: var(--start) var(--end);
 }
 
 @keyframes unblur-word {
     0% {
-        filter: blur(20px);
+        filter: blur(80px);
         opacity: 0;
+        transform: scale(0.3) translateY(20px);
+    }
+
+    50% {
+        filter: blur(40px);
+        opacity: 0.6;
+        transform: scale(1.15) translateY(-5px);
+    }
+
+    75% {
+        filter: blur(10px);
+        opacity: 0.9;
+        transform: scale(0.95) translateY(2px);
     }
 
     100% {
         filter: blur(0px);
         opacity: 1;
+        transform: scale(1) translateY(0);
     }
 }
 
-/* Fallback for browsers that don't support scroll-timeline */
+/* FALLBACK FOR BROWSERS THAT DON'T SUPPORT SCROLL-TIMELINE */
 @supports not (animation-timeline: --section) {
     .word {
         opacity: 1;
