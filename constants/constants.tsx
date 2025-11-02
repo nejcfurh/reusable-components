@@ -10,6 +10,7 @@ import {
   MdOutlinePermMedia,
 } from 'react-icons/md';
 import { PiMouseScroll } from 'react-icons/pi';
+import { SlLayers } from 'react-icons/sl';
 import { TbDragDrop } from 'react-icons/tb';
 
 export const MAIN_PAGE_DATA: MainPageItem[] = [
@@ -72,5 +73,11 @@ export const MAIN_PAGE_DATA: MainPageItem[] = [
     path: '/transforming-cards',
     icon: <CiCreditCard2 />,
     color: 'from-green-200 to-emerald-800',
+  },
+  {
+    name: 'Layered Parallax',
+    path: '/layered-parallax',
+    icon: <SlLayers />,
+    color: 'from-gray-500 to-white',
   },
 ];
