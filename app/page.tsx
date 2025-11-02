@@ -15,7 +15,6 @@ export default function Home() {
       <div className="z-50 mx-auto h-screen flex flex-col justify-between items-center w-full px-4 sm:px-6 ">
         {/* HEADER */}
         <Header title="Reusable Components" />
-
         {/* COMPONENTS GRID */}
         <AnimatedDiv className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {MAIN_PAGE_DATA.map((component: MainPageItem) => (

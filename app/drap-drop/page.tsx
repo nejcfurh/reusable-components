@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900 py-12 px-4 relative">
       <BackButton className="top-5 left-5" />
-      <div className="mx-auto max-w-6xl py-5">
+      <div className="mx-auto max-w-6xl">
         {/* HEADER */}
         <Header />
         <AnimatedBackgroundGradient />
@@ -19,7 +19,7 @@ export default function Home() {
         <FloatingOrb className="absolute bottom-20 right-10 h-96 w-96 rounded-full bg-indigo-400/20 blur-3xl animate-pulse animation-delay-2000 dark:bg-indigo-500/10" />
 
         {/* CONTENT */}
-        <div className="flex mt-10 flex-col gap-8 lg:flex-row items-center justify-center">
+        <div className="flex mt-5 flex-col gap-8 lg:flex-row items-center justify-center">
           <Widgets />
           <DropArea />
         </div>
