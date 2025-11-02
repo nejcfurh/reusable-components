@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ScrollToDecrypt from './components/ScrollToDecrypt';
+import { ScrollToDecryptWithSuspense } from './components/ScrollToDecrypt';
 import { IoArrowBack } from 'react-icons/io5';
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
         {' '}
         <IoArrowBack className="text-2xl text-black" />
       </Link>
-      <ScrollToDecrypt
+      <ScrollToDecryptWithSuspense
         title="NaturalEarth.ai"
         subtitle="A smarter way to reconnect with the natural world."
         trackLength={40}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { Suspense, useEffect, useRef } from 'react';
+import ScrollToDecryptSkeleton from './ScrollToDecryptSkeleton';
 
 export interface ScrollToDecryptProps {
   title?: string;
@@ -23,7 +24,7 @@ const ScrollToDecrypt: React.FC<ScrollToDecryptProps> = ({
   titleClassName = '',
   subtitleClassName = '',
   containerClassName = '',
-  enableScrollContent = false,
+  enableScrollContent = true,
 }) => {
   const headingRef = useRef<HTMLDivElement>(null);
 
@@ -186,4 +187,21 @@ const ScrollToDecrypt: React.FC<ScrollToDecryptProps> = ({
   );
 };
 
-export default ScrollToDecrypt;
+export const ScrollToDecryptWithSuspense = ({
+  enableScrollContent,
+  containerClassName,
+  ...props
+}: ScrollToDecryptProps) => {
+  return (
+    <Suspense
+      fallback={
+        <ScrollToDecryptSkeleton
+          enableScrollContent={enableScrollContent}
+          containerClassName={containerClassName}
+        />
+      }
+    >
+      <ScrollToDecrypt {...props} />
+    </Suspense>
+  );
+};
