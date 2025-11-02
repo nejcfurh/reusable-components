@@ -9,7 +9,7 @@ export default function Home() {
       <ScrollToUnblur />
       <Tooltip
         text="Scroll down to unblur"
-        bgColor="bg-amber-50"
+        bgColor="bg-amber-50/80 backdrop-blur-2xl"
         textColor="text-black"
         className="bottom-5 left-1/2 -translate-x-1/2"
       />

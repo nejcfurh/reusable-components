@@ -20,7 +20,7 @@ export default function Tooltip({
     <div className={`absolute inline-flex animate-pulse ${className}`}>
       <div
         className={`
-          px-10 py-4 text-lg font-bold rounded-full
+          px-5 py-2 text-lg font-bold rounded-full
           ${bgColor} ${textColor} ${borderColor}
           border-2 shadow-lg backdrop-blur-sm bg-opacity-95 cursor-none
         `}
