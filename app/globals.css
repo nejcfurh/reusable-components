@@ -271,3 +271,90 @@ ul.slidey>li:hover .fg_content h1 {
   transition-duration: 490ms;
   transform: translate3d(440px, 0, 0);
 }
+
+
+/* HOLOGRAPHIC CARD  */
+
+.card__image-layer,
+.card__holographic,
+.card__details,
+.card__spotlight {
+  position: absolute;
+  inset: 0;
+}
+
+.card__image-layer {
+  z-index: 1;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.card__image-layer img {
+  filter: brightness(0.9) contrast(1.1);
+  transform: translate(calc(var(--pointer-x, 0) * 3%),
+      calc(var(--pointer-y, 0) * 3%));
+  transition: transform 0.1s ease-out;
+}
+
+.card__holographic {
+  z-index: 25;
+  mix-blend-mode: color-dodge;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.holographic-card[data-active='true']:hover .card__holographic {
+  opacity: 0.5;
+}
+
+.refraction {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center,
+      transparent 10%,
+      rgba(255, 50, 50, 0.3) 25%,
+      rgba(50, 255, 150, 0.3) 45%,
+      rgba(50, 150, 255, 0.3) 65%,
+      transparent 85%);
+  filter: blur(50px);
+  will-change: transform;
+}
+
+.refraction-1 {
+  top: -50%;
+  left: -50%;
+  transform: translate(calc(var(--pointer-x, 0) * 20%),
+      calc(var(--pointer-y, 0) * 20%));
+}
+
+.refraction-2 {
+  bottom: -50%;
+  right: -50%;
+  transform: translate(calc(var(--pointer-x, 0) * -20%),
+      calc(var(--pointer-y, 0) * -20%));
+}
+
+.card__details {
+  z-index: 30;
+  pointer-events: none;
+}
+
+.card__spotlight {
+  z-index: 35;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  border-radius: 24px;
+  background: radial-gradient(600px circle at calc(50% + (var(--pointer-x, 0) * 20%)) calc(50% + (var(--pointer-y, 0) * 20%)),
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.05) 20%,
+      transparent 50%);
+}
+
+.holographic-card[data-active='true']:hover .card__spotlight {
+  opacity: 1;
+}

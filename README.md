@@ -102,6 +102,38 @@ Dynamic card scanner effect with particle systems and real-time transformations.
 - **Technologies**: Three.js for 3D particles, Canvas API for scanner effects, React 19 hooks
 - **Inspired by and adapted from**: [Evervault](https://evervault.com/)
 
+### 11. Layered Parallax
+
+Multi-layered parallax scrolling effect with depth-based movement. Images move at different speeds based on their layer depth, creating an immersive 3D scrolling experience.
+
+- **Path**: `/layered-parallax`
+- **Features**:
+  - Multiple parallax layers with configurable depth
+  - Smooth mouse tracking and movement
+  - Depth-based scaling and translation
+  - Responsive design with automatic layer positioning
+  - Performance-optimized with transform3d
+  - Customizable layer images and positions
+- **Technologies**: Framer Motion for animations, React hooks for mouse tracking
+- **Inspired by and adapted from**: Classic parallax scrolling techniques
+
+### 12. Tilt Card
+
+Interactive 3D holographic card with mouse/touch tracking and flip animation. Features a stunning holographic refraction effect that follows the cursor and displays tech stack on the rear.
+
+- **Path**: `/tilt-card`
+- **Features**:
+  - 3D tilt effect following mouse/touch movement
+  - Holographic color-dodge refraction overlay
+  - Smooth card flip animation (front to rear)
+  - Tech stack display with animated grid on rear
+  - Touch support for mobile devices
+  - Hardware-accelerated animations
+  - Responsive sizing for mobile and desktop
+  - Dynamic spotlight and glare effects
+- **Technologies**: Framer Motion for 3D transforms and animations, React hooks for gesture tracking
+- **Inspired by and adapted from**: [Jhey Tompkins](https://twitter.com/jh3yy)
+
 ## 🛠️ Getting Started
 
 ### Prerequisites
@@ -124,6 +156,8 @@ reusable-components/
 │   ├── scroll-to-unblur/        # Scroll to Unblur component
 │   ├── social-media-buttons/    # Social Media Buttons component
 │   ├── transforming-cards/      # Transforming Cards component
+│   ├── layered-parallax/        # Layered Parallax component
+│   ├── tilt-card/               # 3D Tiltilng Card component
 │   ├── globals.css              # Global styles
 │   ├── layout.tsx               # Root layout
 │   └── page.tsx                 # Home page with component gallery
@@ -147,6 +181,8 @@ reusable-components/
 │   ├── multi-option-button/     # Multi-option menu config
 │   ├── scroll-to-unblur/        # Scroll unblur utilities
 │   ├── social-media-buttons/    # Social buttons config
+│   ├── layered-parallax/        # Layered parallax config
+│   ├── tilt-card/               # Tilt card config
 │   └── transforming-cards/      # Card transformation logic
 ├── hooks/                       # Custom React hooks
 ├── constants/                   # Global constants

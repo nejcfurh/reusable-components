@@ -1,6 +1,7 @@
 import { MainPageItem } from '@/utils/types';
 import { BsInputCursor } from 'react-icons/bs';
 import { CiCreditCard2 } from 'react-icons/ci';
+import { GiCardPlay } from 'react-icons/gi';
 import { GrShareOption } from 'react-icons/gr';
 import { IoShareSocialOutline } from 'react-icons/io5';
 import {
@@ -79,5 +80,11 @@ export const MAIN_PAGE_DATA: MainPageItem[] = [
     path: '/layered-parallax',
     icon: <SlLayers />,
     color: 'from-gray-500 to-white',
+  },
+  {
+    name: 'Tilt Card',
+    path: '/tilt-card',
+    icon: <GiCardPlay />,
+    color: 'from-gray-900 to-cyan-500',
   },
 ];
