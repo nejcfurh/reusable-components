@@ -6,14 +6,14 @@ import BackButton from '@/components/buttons/BackButton';
 
 export default function TiltCardPage() {
   return (
-    <div className="min-h-screen bg-linear-to-br flex justify-evenly items-center from-gray-50 via-white to-gray-100 dark:from-gray-950 dark:via-black dark:to-gray-900">
+    <div className="min-h-screen bg-linear-to-br flex justify-evenly items-center from-gray-950 via-black to-gray-900">
       <AnimatedBackgroundGradient />
       <FloatingOrb className="absolute top-20 left-10 h-72 w-72 rounded-full bg-blue-400/20 blur-3xl animate-pulse dark:bg-blue-500/10" />
       <BackButton className="top-5 left-5" />
       <SVGFilters />
 
       <div className="max-w-7xl w-full">
-        {/* Instructions */}
+        {/* INSTRUCTIONS */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-white mb-4">
             Holographic 3D Card

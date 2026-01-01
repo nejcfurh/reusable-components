@@ -10,7 +10,7 @@ import TiltCard from './tilt-card/components/TiltCard';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-linear-to-br flex items-center from-gray-50 via-white to-gray-100 dark:from-gray-950 dark:via-black dark:to-gray-900">
+    <div className="min-h-screen bg-linear-to-br flex items-center from-gray-950 via-black to-gray-900">
       <AnimatedBackgroundGradient />
       <FloatingOrb className="absolute top-20 left-10 h-72 w-72 rounded-full bg-blue-400/20 blur-3xl animate-pulse dark:bg-blue-500/10" />
       <div className="z-50 mx-auto min-h-screen flex flex-col justify-around items-center w-full px-3 sm:px-6">

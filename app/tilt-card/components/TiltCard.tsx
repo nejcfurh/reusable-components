@@ -3,7 +3,7 @@
 import { useRef, useState, MouseEvent, TouchEvent, useEffect } from 'react';
 import { motion, MotionStyle, useMotionValue, useSpring } from 'motion/react';
 import Image from 'next/image';
-import { TECH_STACK_DATA } from '@/features/tilt-card/constants';
+import ItemsList from '@/app/staggered-animation/components/ItemsList';
 
 interface HolographicCardProps {
   name: string;
@@ -48,8 +48,8 @@ export default function HolographicCard({
     const posX = e.clientX - rect.left;
     const posY = e.clientY - rect.top;
 
-    const ratioX = posX / rect.width - 0.5;
-    const ratioY = posY / rect.height - 0.5;
+    const ratioX = posX / rect.width - 0.25;
+    const ratioY = posY / rect.height - 0.35;
 
     const newPointerX = Math.max(-1, Math.min(1, ratioX * 2));
     const newPointerY = Math.max(-1, Math.min(1, ratioY * 2));
@@ -154,38 +154,27 @@ export default function HolographicCard({
               transition: 'visibility 0.5s',
             }}
           >
-            <div className="relative w-full h-full flex flex-col items-center justify-center p-8">
-              {/* TITLE */}
-              <motion.h2
-                className="text-xl sm:text-3xl text-gray-200 mb-5 sm:mb-8 tracking-wider font-light"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: isFlipped ? 1 : 0, y: isFlipped ? 0 : -20 }}
-                transition={{ delay: 0.3 }}
-              >
-                TECH STACK
-              </motion.h2>
-
-              {/* GRID */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-4 w-full max-w-sm text-gray-200">
-                {TECH_STACK_DATA.map((tech, index) => (
-                  <motion.div
-                    key={tech.name}
-                    className={`relative rounded-xl p-1 sm:p-2 flex flex-col items-center justify-center`}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{
-                      opacity: isFlipped ? 1 : 0,
-                      scale: isFlipped ? 1 : 0,
-                    }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                  >
-                    <span className="text-3xl mb-2">{tech.icon}</span>
-                    <span className="text-sm font-bold text-gray-200 text-center [text-shadow:0_2px_4px_rgba(0,0,0,0.5)]">
-                      {tech.name}
-                    </span>
-                  </motion.div>
-                ))}
+            {isFlipped && (
+              <div className="relative w-full h-full flex flex-col items-center justify-center p-8">
+                {/* TITLE */}
+                <motion.h2
+                  className="text-xl sm:text-3xl text-gray-200 mb-3 sm:mb-8 tracking-wider font-light"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{
+                    opacity: isFlipped ? 1 : 0,
+                    y: isFlipped ? 0 : -20,
+                  }}
+                  transition={{ delay: 0.3 }}
+                >
+                  TECH STACK
+                </motion.h2>
+                {/* GRID */}
+                <ItemsList
+                  className="grid grid-cols-2 gap-3 w-full max-w-sm text-gray-200"
+                  classNameItems="relative text-xs sm:text-sm rounded-xl p-1 flex gap-2 items-center justify-center border border-white/30"
+                />
               </div>
-            </div>
+            )}
 
             {/* LOGO ELEMENTS */}
             <div className="absolute scale-90 sm:scale-100 sm:top-4 sm:right-4 right-2 top-2 z-60 pointer-events-none">

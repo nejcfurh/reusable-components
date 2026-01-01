@@ -1,6 +1,7 @@
 import { MainPageItem } from '@/utils/types';
 import { BsInputCursor } from 'react-icons/bs';
 import { CiCreditCard2 } from 'react-icons/ci';
+import { FaBarsStaggered } from 'react-icons/fa6';
 import { GiCardPlay } from 'react-icons/gi';
 import { GrShareOption } from 'react-icons/gr';
 import { IoShareSocialOutline } from 'react-icons/io5';
@@ -86,5 +87,11 @@ export const MAIN_PAGE_DATA: MainPageItem[] = [
     path: '/tilt-card',
     icon: <GiCardPlay />,
     color: 'from-gray-900 to-cyan-500',
+  },
+  {
+    name: 'Staggered Animation',
+    path: '/staggered-animation',
+    icon: <FaBarsStaggered />,
+    color: 'from-purple-500 to-pink-500',
   },
 ];
