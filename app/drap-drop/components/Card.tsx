@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'motion/react';
 import { IoClose } from 'react-icons/io5';
 import { CardDataType } from '@/features/drag-drop/types';
+import AnimatedDiv from '@/components/animation-core/AnimatedDiv';
 
 interface CardProps extends CardDataType {
   onRemove?: () => void;
@@ -11,7 +11,7 @@ interface CardProps extends CardDataType {
 
 const Card = ({ title, description, image, onRemove }: CardProps) => {
   return (
-    <motion.div
+    <AnimatedDiv
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0 }}
@@ -67,7 +67,7 @@ const Card = ({ title, description, image, onRemove }: CardProps) => {
 
       {/* Shine effect on hover */}
       <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/10 to-transparent" />
-    </motion.div>
+    </AnimatedDiv>
   );
 };
 

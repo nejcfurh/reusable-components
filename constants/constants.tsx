@@ -13,7 +13,7 @@ import {
 } from 'react-icons/md';
 import { PiMouseScroll } from 'react-icons/pi';
 import { SlLayers } from 'react-icons/sl';
-import { TbDragDrop } from 'react-icons/tb';
+import { TbCarouselHorizontal, TbDragDrop } from 'react-icons/tb';
 
 export const MAIN_PAGE_DATA: MainPageItem[] = [
   {
@@ -99,5 +99,11 @@ export const MAIN_PAGE_DATA: MainPageItem[] = [
     path: '/smooth-scroll',
     icon: <FaScroll />,
     color: 'from-pink-500 to-cyan-500',
+  },
+  {
+    name: 'Infinite Scroll Carousel',
+    path: '/infinite-scroll-carousel',
+    icon: <TbCarouselHorizontal />,
+    color: 'from-green-500 to-emerald-800',
   },
 ];
