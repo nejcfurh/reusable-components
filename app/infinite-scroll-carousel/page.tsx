@@ -15,6 +15,11 @@ const InfiniteScrollCarouselPage = () => {
       <h1 className="text-5xl w-full text-center font-bold text-white py-10 ">
         Infinite Scroll Carousel
       </h1>
+      <p className="text-center text-xl py-12 text-white/50 mx-auto max-w-3xl">
+        This is a simple infinite scroll carousel that is modeled after the
+        Apple Music carousel that is also used in the Apple Homepod product
+        page.
+      </p>
       <InfiniteCarousel />
     </Background>
   );

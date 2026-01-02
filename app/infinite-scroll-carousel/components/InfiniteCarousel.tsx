@@ -106,7 +106,7 @@ const InfiniteCarousel = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.75, ease: 'easeInOut' }}
-      className="py-32 relative overflow-hidden w-screen h-screen"
+      className="py-20 relative overflow-hidden w-screen h-screen"
     >
       {items && (
         <AnimatedDiv

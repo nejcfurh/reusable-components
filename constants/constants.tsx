@@ -1,6 +1,7 @@
 import { MainPageItem } from '@/utils/types';
 import { BsInputCursor } from 'react-icons/bs';
 import { CiCreditCard2 } from 'react-icons/ci';
+import { FaApple } from 'react-icons/fa';
 import { FaBarsStaggered, FaScroll } from 'react-icons/fa6';
 import { GiCardPlay } from 'react-icons/gi';
 import { GrShareOption } from 'react-icons/gr';
@@ -105,5 +106,11 @@ export const MAIN_PAGE_DATA: MainPageItem[] = [
     path: '/infinite-scroll-carousel',
     icon: <TbCarouselHorizontal />,
     color: 'from-green-500 to-emerald-800',
+  },
+  {
+    name: 'Apple Scroll Effect',
+    path: '/apple-scroll-effect',
+    icon: <FaApple />,
+    color: 'from-gray-500 to-pink-500',
   },
 ];
