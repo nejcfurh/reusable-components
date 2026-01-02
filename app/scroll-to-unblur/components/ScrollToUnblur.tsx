@@ -52,7 +52,7 @@ export default function ScrollToUnblur({
 
   return (
     <main
-      className="h-screen pt-10 overflow-y-scroll bg-linear-to-br from-[#0f0f23] via-[#1a0b2e] to-[#16001e]"
+      className="h-screen pt-10 overflow-y-scroll"
       style={
         {
           scrollTimelineName: '--section',

@@ -48,7 +48,7 @@ export default function HolographicCard({
     const posX = e.clientX - rect.left;
     const posY = e.clientY - rect.top;
 
-    const ratioX = posX / rect.width - 0.25;
+    const ratioX = posX / rect.width - 0.35;
     const ratioY = posY / rect.height - 0.35;
 
     const newPointerX = Math.max(-1, Math.min(1, ratioX * 2));
@@ -215,8 +215,8 @@ export default function HolographicCard({
               <Image
                 src={imageUrl}
                 alt={name}
-                className="absolute bottom-[-10] right-0 w-full h-full object-cover"
-                width={2000}
+                className="absolute bottom-[-10] w-full h-full object-cover scale-x-[1.04]"
+                width={2500}
                 height={2000}
                 priority
               />

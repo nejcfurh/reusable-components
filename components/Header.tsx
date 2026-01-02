@@ -10,8 +10,8 @@ const Header = ({ title }: { title: string }) => {
       </AnimatedTitle>
       <AnimatedSubTitle className="flex mt-5 sm:mt-8 text-gray-500 text-xs sm:text-base mx-10">
         <span>
-          A collection of reusable components for your next project, check out
-          on{' '}
+          A collection of reusable components for your next project, check it
+          out on{' '}
           <a
             href="https://github.com/nejcfurh/reusable-components"
             target="_blank"

@@ -6,6 +6,7 @@ import BackButton from '@/components/buttons/BackButton';
 import SwitchInputTypeButton from './components/SwitchInputTypeButton';
 import AnimatedBackgroundGradient from '@/components/animation-core/AnimatedBackgroundGradient';
 import FloatingOrb from '@/components/animation-core/FloatingOrb';
+import Background from '@/components/Background';
 
 export default function InputFieldsPage() {
   const [inputType, setInputType] = useState<'login' | 'signup'>('login');
@@ -15,7 +16,7 @@ export default function InputFieldsPage() {
   };
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-linear-to-br from-slate-50 via-blue-50 to-indigo-100 p-4 dark:from-gray-950 dark:via-slate-900 dark:to-indigo-950">
+    <Background className="flex items-center justify-center">
       {/* ANIMATED BACKGROUND GRADIENT OVERLAY */}
       <AnimatedBackgroundGradient />
 
@@ -29,6 +30,6 @@ export default function InputFieldsPage() {
         handleSwitchInputType={handleSwitchInputType}
       />
       <TextInputFields inputType={inputType} />
-    </div>
+    </Background>
   );
 }

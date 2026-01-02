@@ -7,10 +7,11 @@ import Header from '@/components/Header';
 import { MAIN_PAGE_DATA } from '@/constants/constants';
 import { MainPageItem } from '@/utils/types';
 import TiltCard from './tilt-card/components/TiltCard';
+import Background from '@/components/Background';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-linear-to-br flex items-center from-gray-950 via-black to-gray-900">
+    <Background>
       <AnimatedBackgroundGradient />
       <FloatingOrb className="absolute top-20 left-10 h-72 w-72 rounded-full bg-blue-400/20 blur-3xl animate-pulse dark:bg-blue-500/10" />
       <div className="z-50 mx-auto min-h-screen flex flex-col justify-around items-center w-full px-3 sm:px-6">
@@ -41,6 +42,6 @@ export default function Home() {
         {/* FOOTER */}
         <Footer year={2025} />
       </div>
-    </div>
+    </Background>
   );
 }

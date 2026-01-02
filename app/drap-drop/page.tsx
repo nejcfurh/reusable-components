@@ -6,13 +6,13 @@ import BackButton from '@/components/buttons/BackButton';
 import Header from './components/Header';
 import AnimatedBackgroundGradient from '@/components/animation-core/AnimatedBackgroundGradient';
 import FloatingOrb from '@/components/animation-core/FloatingOrb';
+import Background from '@/components/Background';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900 py-12 px-4 relative">
+    <Background className="py-10 px-4">
       <BackButton className="top-5 left-5" />
       <div className="mx-auto max-w-6xl">
-        {/* HEADER */}
         <Header />
         <AnimatedBackgroundGradient />
         <FloatingOrb className="absolute top-20 left-10 h-72 w-72 rounded-full bg-blue-400/20 blur-3xl animate-pulse dark:bg-blue-500/10" />
@@ -24,6 +24,6 @@ export default function Home() {
           <DropArea />
         </div>
       </div>
-    </div>
+    </Background>
   );
 }
