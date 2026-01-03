@@ -1,4 +1,4 @@
-import { IMG_PADDING } from '@/features/apple-scroll-effect/constants';
+import { IMG_PADDING } from '@/features/scroll-animation/constants';
 import StickyImage from './StickyImage';
 import OverlayCopy from './OverlayCopy';
 

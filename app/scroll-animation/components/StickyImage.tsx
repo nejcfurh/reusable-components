@@ -1,5 +1,5 @@
 import AnimatedDiv from '@/components/animation-core/AnimatedDiv';
-import { IMG_PADDING } from '@/features/apple-scroll-effect/constants';
+import { IMG_PADDING } from '@/features/scroll-animation/constants';
 import { useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 
