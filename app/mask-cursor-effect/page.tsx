@@ -26,7 +26,7 @@ const MaskCursorEffectPage = () => {
           maskPosition: `${x - maskSize / 2}px ${y - maskSize / 2}px`,
           maskSize: `${maskSize}px`,
         }}
-        className="absolute h-full w-full flex font-bold items-center justify-center text-7xl leading-16 cursor-none!"
+        className="absolute h-full w-full flex font-bold items-center justify-center text-6xl leading-16 cursor-none!"
         style={{
           maskImage: 'url(/images/mask-cursor-effect/mask.svg)',
           maskRepeat: 'no-repeat',
@@ -37,15 +37,16 @@ const MaskCursorEffectPage = () => {
         <p
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="w-[1100px] px-10 py-20 cursor-none!"
+          className="w-[1100px] px-10 py-10 cursor-none!"
         >
-          A visual designer - with skills that haven&apos;t been replaced by AI
-          (yet) - making good shit only if the paycheck is equally good.
+          A visual designer - with skills that haven&apos;t been replaced by{' '}
+          <span className="bg-black text-[#e23720]">AI (yet)</span> - making
+          good shit only if the paycheck is equally good.
         </p>
       </AnimatedDiv>
       {/* BODY */}
-      <div className="pointer-events-none h-full w-full flex items-center font-bold justify-center text-7xl leading-16 cursor-none!">
-        <p className="w-[1100px] px-10 py-20">
+      <div className="pointer-events-none h-full w-full flex items-center font-bold justify-center text-6xl leading-16 cursor-none!">
+        <p className="w-[1100px] px-10 py-10">
           I&apos;m a <span className="bg-[#e23720]">selectivelly skilled</span>{' '}
           web developer with strong focus on producing high-quality & impactful
           digital experiences.
