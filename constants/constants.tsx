@@ -4,6 +4,7 @@ import { CiCreditCard2 } from 'react-icons/ci';
 import { FaBarsStaggered, FaScroll } from 'react-icons/fa6';
 import { GiCardPlay } from 'react-icons/gi';
 import { GrShareOption } from 'react-icons/gr';
+import { HiOutlineCursorArrowRipple } from 'react-icons/hi2';
 import { IoShareSocialOutline } from 'react-icons/io5';
 import {
   MdBlurOn,
@@ -105,5 +106,11 @@ export const MAIN_PAGE_DATA: MainPageItem[] = [
     path: '/infinite-scroll-carousel',
     icon: <TbCarouselHorizontal />,
     color: 'from-green-500 to-emerald-800',
+  },
+  {
+    name: 'Mask Cursor Effect',
+    path: '/mask-cursor-effect',
+    icon: <HiOutlineCursorArrowRipple />,
+    color: 'from-pink-500 to-cyan-500',
   },
 ];
