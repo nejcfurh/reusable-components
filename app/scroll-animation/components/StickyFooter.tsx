@@ -78,13 +78,13 @@ const StickyFooter = () => {
       {/* MAIN FOOTER CONTENT */}
       <div className="flex-1 flex flex-col">
         {/* TOP SECTION - MULTI COLUMN LAYOUT */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8">
+        <div className="grid grid-cols-4 gap-2 sm:gap-8 md:gap-12 mb-8">
           {footerSections.map(section => (
             <div key={section.title}>
-              <h3 className="text-base font-semibold mb-4 text-black uppercase tracking-wide">
+              <h3 className="text-xs sm:text-base font-semibold mb-4 text-black uppercase tracking-wide">
                 {section.title}
               </h3>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-3 text-xs sm:text-sm text-gray-600">
                 {section.links.map(link => (
                   <li key={link.label}>
                     <Link
@@ -103,8 +103,8 @@ const StickyFooter = () => {
 
       {/* COPYRIGHT & HEADING */}
       <div className="mt-auto flex flex-col gap-2">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-gray-500 border-t-2 border-gray-300 pt-1">
-          <p>© {new Date().getFullYear()} - All rights reserved.</p>
+        <div className="flex flex-row justify-between items-center gap-2 text-xs text-gray-500 border-t-2 border-gray-300 pt-1">
+          <p>© 2026 - All rights reserved.</p>
           <div className="flex gap-4">
             {bottomLinks.map(link => (
               <Link
@@ -118,8 +118,8 @@ const StickyFooter = () => {
           </div>
         </div>
         {/* HEADING WITH SOCIAL ICONS */}
-        <div className="flex items-center justify-between gap-6">
-          <h1 className="text-left text-9xl font-bold whitespace-nowrap text-black">
+        <div className="flex flex-col my-5 sm:mb-0 sm:flex-row items-center justify-between gap-6">
+          <h1 className="text-left text-4xl sm:text-6xl md:text-9xl font-bold whitespace-nowrap text-black">
             COMPANY NAME
           </h1>
           <div className="flex gap-5">
