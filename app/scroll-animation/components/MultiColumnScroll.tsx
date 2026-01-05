@@ -21,7 +21,7 @@ const MultiColumnScroll = () => {
   const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 2.9]);
 
   return (
-    <main className="bg-white py-[25vh]">
+    <main className="bg-white pt-[25vh]">
       {/* GALLERY */}
       <div
         ref={ref}
