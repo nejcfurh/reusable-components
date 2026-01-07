@@ -4,6 +4,7 @@ import Schedule from './components/Schedule';
 import { ReactLenis } from 'lenis/react';
 import Footer from './components/Footer';
 import BackButton from '@/components/buttons/BackButton';
+import ZoomParallaxGallery from './components/ZoomParallaxGallery';
 
 const SmoothScrollPage = () => {
   return (
@@ -13,6 +14,7 @@ const SmoothScrollPage = () => {
         <NavBar />
         <Hero />
         <Schedule />
+        <ZoomParallaxGallery />
         <Footer />
       </ReactLenis>
     </div>
