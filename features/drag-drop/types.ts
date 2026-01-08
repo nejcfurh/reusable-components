@@ -1,5 +1,6 @@
 export interface CardDataType {
   title: string;
-  description: string;
-  image: string;
+  id: string;
+  column: string;
+  createdAt: string;
 }
